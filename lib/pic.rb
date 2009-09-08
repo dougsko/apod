@@ -10,4 +10,16 @@ class Pic
         @title = title
         @website = website
     end
+
+    def download(save_path)
+        doc = Hpricot(open(self.website))
+        link = "http://apod.nasa.gov/" + doc.at("//center/p[2]/a")["href"]
+        url = URI.parse(link)
+
+        url.open do |pic|
+            File.open(save_path, "w") do |file|
+                file << pic.read
+            end
+        end
+    end
 end

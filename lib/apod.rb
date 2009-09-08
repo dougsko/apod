@@ -24,27 +24,13 @@ class Apod
         @pictures.collect{ |pic| pic.title }
     end
 
-    def download(index, save_path)
-        doc = Hpricot(open(@pictures[index].website))
-        link = "http://apod.nasa.gov/" + doc.at("//center/p[2]/a")["href"]
-
-        url = URI.parse(link)
-
-        url.open do |pic|
-            File.open(save_path, "w") do |file|
-                file << pic.read
-            end
-        end
-    end
-
     def search(query)
         if query.size > 60
-            puts "ERROR: Query must be less than 60 characters"
-            return
+            return "ERROR: Query must be less than 60 characters"
         end
         @pictures = []
         clnt = HTTPClient.new("http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search")
-        results = clnt.post('http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search', {'tquery' => 'saturn'}).content
+        results = clnt.post('http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search', {'tquery' => query}).content
         doc = Hpricot(results)
         doc.search("//p").each do |para|
             title = para.at("a[2]")

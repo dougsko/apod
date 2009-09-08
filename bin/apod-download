@@ -29,4 +29,4 @@ opts.parse(ARGV)
 save_path = options["o"]
 
 apod = Apod.new
-apod.download(0, save_path)
+apod.pictures.first.download(save_path)
