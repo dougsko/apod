@@ -5,6 +5,7 @@
 
 require 'rubygems'
 require 'open-uri'
+require 'httpclient'
 require 'hpricot'
 require 'lib/pic'
 
@@ -34,5 +35,24 @@ class Apod
                 file << pic.read
             end
         end
+    end
+
+    def search(query)
+        if query.size > 60
+            puts "ERROR: Query must be less than 60 characters"
+            return
+        end
+        @pictures = []
+        clnt = HTTPClient.new("http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search")
+        results = clnt.post('http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search', {'tquery' => 'saturn'}).content
+        doc = Hpricot(results)
+        doc.search("//p").each do |para|
+            title = para.at("a[2]")
+            link = para.at("a")
+            if title != nil and link != nil
+                @pictures << Pic.new(title.innerHTML, link["href"])
+            end
+        end
+        @pictures.pop
     end
 end
