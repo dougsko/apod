@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{apod}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dougsko"]
@@ -25,9 +25,12 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "apod.gemspec",
      "bin/apod-download",
      "lib/apod.rb",
+     "lib/pic.rb",
      "spec/apod_spec.rb",
+     "spec/pic_spec.rb",
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/dougsko/apod}
@@ -36,7 +39,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{A library to work with NASA's astronomy pictures of the day.}
   s.test_files = [
-    "spec/spec_helper.rb",
+    "spec/pic_spec.rb",
+     "spec/spec_helper.rb",
      "spec/apod_spec.rb"
   ]
 
