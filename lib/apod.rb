@@ -8,6 +8,7 @@ require 'open-uri'
 require 'hpricot'
 
 class Apod
+    attr_reader(:pictures)
     def initialize
         @pictures = []
 
@@ -17,9 +18,9 @@ class Apod
         end
     end
 
-    def pictures
-        @pictures
-    end
+    #def pictures
+    #    @pictures
+    #end
 
     def titles
         @pictures.collect{ |pic| pic.title }
