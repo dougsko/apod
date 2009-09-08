@@ -1,6 +1,8 @@
 = apod
 
-Description goes here.
+This is a library to work with NASA's astronomy pictures of the day.
+
+http://antwrp.gsfc.nasa.gov/apod
 
 == Note on Patches/Pull Requests
  
