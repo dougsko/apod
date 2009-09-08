@@ -1,6 +1,8 @@
 = apod
 
 This is a library to work with NASA's astronomy pictures of the day.
+It also includes the script, apod-download, which will download the
+current picture of the day to your computer.
 
 http://antwrp.gsfc.nasa.gov/apod
 
