@@ -6,6 +6,7 @@
 require 'rubygems'
 require 'open-uri'
 require 'hpricot'
+require 'lib/pic'
 
 class Apod
     attr_reader(:pictures)
@@ -17,10 +18,6 @@ class Apod
             @pictures << Pic.new(elem.innerHTML, "http://antwrp.gsfc.nasa.gov/apod/" + elem["href"])
         end
     end
-
-    #def pictures
-    #    @pictures
-    #end
 
     def titles
         @pictures.collect{ |pic| pic.title }
@@ -37,14 +34,5 @@ class Apod
                 file << pic.read
             end
         end
-    end
-end
-
-class Pic
-    attr_reader(:title, :website)
-
-    def initialize(title, website)
-        @title = title
-        @website = website
     end
 end

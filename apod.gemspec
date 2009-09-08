@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "apod.gemspec",
      "bin/apod-download",
      "lib/apod.rb",
      "spec/apod_spec.rb",
