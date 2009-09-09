@@ -4,7 +4,7 @@
 #
 
 require 'rubygems'
-require 'lib/apod'
+require 'apod'
 require 'optparse'
 
 options = {}

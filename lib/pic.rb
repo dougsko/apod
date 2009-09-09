@@ -1,16 +1,19 @@
 #!/usr/bin/env ruby
 #
-# class to hold an entry's information
+# Class to hold an entry's information
 #
 
 class Pic
     attr_reader(:title, :website)
              
+    # Takes two strings, the title of the picture and the URL to its
+    # website.
     def initialize(title, website)
         @title = title
         @website = website
     end
 
+    # Download a picture to a file
     def download(save_path)
         doc = Hpricot(open(self.website))
         link = "http://apod.nasa.gov/" + doc.at("//center/p[2]/a")["href"]
