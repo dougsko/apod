@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{apod}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dougsko"]
-  s.date = %q{2009-09-08}
+  s.date = %q{2009-09-09}
   s.default_executable = %q{apod-download}
   s.description = %q{A library to work with NASA's astronomy pictures of the day.}
   s.email = %q{dougtko@gmail.com}
