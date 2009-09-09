@@ -7,7 +7,7 @@ require 'rubygems'
 require 'open-uri'
 require 'httpclient'
 require 'hpricot'
-require 'lib/pic'
+require 'pic'
 
 class Apod
     attr_reader(:pictures)
