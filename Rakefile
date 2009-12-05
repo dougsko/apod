@@ -33,12 +33,12 @@ Spec::Rake::SpecTask.new(:rcov) do |spec|
   spec.spec_opts = ['--color']
 end
 
-task :spec => :check_dependencies
+#task :spec => :check_dependencies
 
 task :default => :spec
 
 require 'rake/rdoctask'
-require 'darkfish-rdoc'
+#require 'darkfish-rdoc'
 Rake::RDocTask.new do |rdoc|
   if File.exist?('VERSION')
     version = File.read('VERSION')
@@ -50,8 +50,8 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = "apod #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
-  rdoc.options += [
-    '-N',
-    '-f', 'darkfish',
-  ]
+  #rdoc.options += [
+  #  '-N',
+  #  '-f', 'darkfish',
+  #]
 end

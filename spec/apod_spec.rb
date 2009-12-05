@@ -13,8 +13,12 @@ describe "Apod" do
         @apod.titles.class.to_s.should == "Array"
     end
 
-    it "search and download the first picture" do
-        @apod.search("earth")
+    it "searches for a picture" do
+        results = @apod.search("earth")
+        results.class.to_s.should match(/Pic/)
+    end
+
+    it "download the first picture" do
         @apod.pictures.first.download("/tmp/apod.jpg")
         `file /tmp/apod.jpg`.should match(/image data/)
         `rm /tmp/apod.jpg`
