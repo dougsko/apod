@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Apod</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./lib/apod_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/apod.rb">lib/apod.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000000">::new</a></li>
+					
+					<li><a href="#M000004">#search</a></li>
+					
+					<li><a href="#M000002">#titles</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./Apod.html">Apod</a></li>
+				
+					<li><a href="./Pic.html">Pic</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Apod</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="pictures-attribute-method" class="method-detail">
+				<a name="pictures"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">pictures</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000000"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/apod.rb, line 14</span>
+14:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
+15:         <span class="ruby-ivar">@pictures</span> = []
+16: 
+17:         <span class="ruby-identifier">archive_doc</span> = <span class="ruby-constant">Hpricot</span>(<span class="ruby-identifier">open</span>(<span class="ruby-value str">&quot;http://antwrp.gsfc.nasa.gov/apod/archivepix.html&quot;</span>))
+18:         <span class="ruby-identifier">archive_doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;/body/b/a&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span><span class="ruby-operator">|</span>
+19:             <span class="ruby-ivar">@pictures</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">elem</span>.<span class="ruby-identifier">innerHTML</span>, <span class="ruby-value str">&quot;http://antwrp.gsfc.nasa.gov/apod/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">elem</span>[<span class="ruby-value str">&quot;href&quot;</span>])
+20:         <span class="ruby-keyword kw">end</span>
+21:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="search-method" class="method-detail ">
+				<a name="M000004"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">search</span><span
+						class="method-args">(query)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="search-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/apod.rb, line 27</span>
+27:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">query</span>)
+28:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">query</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">60</span>
+29:             <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;ERROR: Query must be less than 60 characters&quot;</span>
+30:         <span class="ruby-keyword kw">end</span>
+31:         <span class="ruby-ivar">@pictures</span> = []
+32:         <span class="ruby-identifier">clnt</span> = <span class="ruby-constant">HTTPClient</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search&quot;</span>)
+33:         <span class="ruby-identifier">results</span> = <span class="ruby-identifier">clnt</span>.<span class="ruby-identifier">post</span>(<span class="ruby-value str">'http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search'</span>, {<span class="ruby-value str">'tquery'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">query</span>}).<span class="ruby-identifier">content</span>
+34:         <span class="ruby-identifier">doc</span> = <span class="ruby-constant">Hpricot</span>(<span class="ruby-identifier">results</span>)
+35:         <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;//p&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">para</span><span class="ruby-operator">|</span>
+36:             <span class="ruby-identifier">title</span> = <span class="ruby-identifier">para</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;a[2]&quot;</span>)
+37:             <span class="ruby-identifier">link</span> = <span class="ruby-identifier">para</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;a&quot;</span>)
+38:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">title</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">link</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">nil</span>
+39:                 <span class="ruby-ivar">@pictures</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">title</span>.<span class="ruby-identifier">innerHTML</span>, <span class="ruby-identifier">link</span>[<span class="ruby-value str">&quot;href&quot;</span>])
+40:             <span class="ruby-keyword kw">end</span>
+41:         <span class="ruby-keyword kw">end</span>
+42:         <span class="ruby-ivar">@pictures</span>.<span class="ruby-identifier">pop</span>
+43:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="titles-method" class="method-detail ">
+				<a name="M000002"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">titles</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="titles-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/apod.rb, line 23</span>
+23:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">titles</span>
+24:         <span class="ruby-ivar">@pictures</span>.<span class="ruby-identifier">collect</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">pic</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pic</span>.<span class="ruby-identifier">title</span> }
+25:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
