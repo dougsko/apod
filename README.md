@@ -25,7 +25,7 @@ Or install it yourself as:
 This library comes with an executable, apod-download, which can be used
 to download the current picture of the day.  For usage, run:
 
-```apod-download -h```
+```apod -h```
 
 ## Development
 
