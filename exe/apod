@@ -3,8 +3,7 @@
 # Grabs NASA's Astronomy Picture of the Day
 #
 
-require 'rubygems'
-require 'lib/apod'
+require 'apod'
 require 'optparse'
 
 options = {}
