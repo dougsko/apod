@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /.bundle/
 /.yardoc
 /Gemfile.lock
@@ -7,3 +8,10 @@
 /pkg/
 /spec/reports/
 /tmp/
+=======
+*.sw?
+.DS_Store
+coverage
+rdoc
+pkg
+>>>>>>> 7cb01caa087c8e6d3c4c1f81531fa922e27caef2

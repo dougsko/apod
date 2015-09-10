@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+#
+# Grabs NASA's Astronomy Picture of the Day
+#
+
+require 'rubygems'
+require 'lib/apod'
+require 'optparse'
+
+options = {}
+opts = OptionParser.new do |opts|
+    opts.banner =  "\nDownload NASA's Astronomy Picture of the Day"
+
+    opts.separator ""
+    opts.separator "Options:"
+
+    opts.on("-o <output file>", String, "Filename to save picture as") do |output|
+        options["o"] = output
+    end
+
+    opts.on_tail("-h", "--help", "Show this message") do
+        puts opts
+        exit
+    end
+end
+
+opts.parse(ARGV)
+
+save_path = options["o"]
+
+apod = Apod.new
+apod.pictures.first.download(save_path)
