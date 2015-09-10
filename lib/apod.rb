@@ -1,5 +1,5 @@
 require "apod/version"
-require_relative 'pic'
+require 'lib/pic'
 require 'nokogiri'
 require 'httpclient'
 
